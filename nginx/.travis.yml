@@ -1,0 +1,21 @@
+language: generic 
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t andreamontenegroem/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run andreamontenegroem/react-test npm test -- --coverage
+
+after_success:
+  - docker build -t andreamontenegroem/complex-client ./client
+  - docker build -t andreamontenegroem/complex-nginx ./nginx
+  - docker build -t andreamontenegroem/complex-server ./server
+  - docker build -t andreamontenegroem/complex-worker ./worker
+
+
+script:
+  - docker run -e CI=true USERNAME/react-test npm test

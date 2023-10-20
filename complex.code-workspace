@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "SSH FS - Express 2.2023.02 (root)",
+			"uri": "ssh://express-2.2023.02-root/"
+		}
+	],
+	"settings": {}
+}
