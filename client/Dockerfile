@@ -1,9 +1,10 @@
 FROM node:16-alpine as builder
 WORKDIR '/app'
-COPY ./package.json ./
+COPY ./package*.json ./
 RUN npm install
-COPY ./public ./src ./
-CMD ["npm", "run", "build"]
+ADD ./public ./public
+ADD ./src ./src
+RUN ["npm", "run", "build"]
 
 FROM nginx
 EXPOSE 3000
