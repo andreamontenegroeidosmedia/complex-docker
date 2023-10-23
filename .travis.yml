@@ -18,6 +18,7 @@ after_success:
 
   # Log in to the Docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
   # Push images to DockerHub
   - docker push andreamontenegroem/complex-client
   - docker push andreamontenegroem/complex-nginx
